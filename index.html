@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encrypted Email</title>
+    
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
+</head>
+<body class="black">
+    <style>*{color:white;}input[type="submit"],button{color: black;}</style>
+    <h1>Encrypted email</h1>
+    <form onsubmit="this.action = `mailto:${document.getElementById('to').value}`; var x=document.getElementById('body');x.value=window.btoa(x.value);x.value+=`\nDecode with ${window.location.href}`">
+        <h4>Encrypt & Send</h4>
+        <input type="email" id="to" placeholder="to address">
+        <input type="text" name="subject" placeholder="subject">
+        <textarea name="body" id="body" style="height: 35em; width:60em;"></textarea>
+        <br>
+        <input type="submit" value="Send!">
+    </form>
+    <h4>CopyPaste & Decrypt</h4>
+    <textarea id="ecrypt" placeholder="encrypted message" style="height: 23em; width:30em;"></textarea>
+    <br>
+    <button onclick="var x=document.getElementById('ecrypt');x.value=atob(x.value.replaceAll(/[^\x00-\xFF]/g, ''));">Decrypt</button>
+</body>
+</html>
