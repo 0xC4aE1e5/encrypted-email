@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encrypted Email</title>
     
+    <script>
+        function isMobile() {
+            return /iPhone|Android/.test(navigator.userAgent);
+        }
+    </script>
+
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
@@ -16,7 +22,7 @@
 <body class="black">
     <style>*{color:white;}input[type="submit"],button{color: black;}</style>
     <h1>Encrypted email</h1>
-    <form onsubmit="this.action = `mailto:${document.getElementById('to').value}`; var x=document.getElementById('body');x.value=window.btoa(x.value);x.value+=`\nDecode with ${window.location.href}`">
+    <form onsubmit="var x=document.getElementById('body'); if (isMobile()) {navigator.share({title: document.getElementById('to').value,text: x.value})} else {this.action = `mailto:${document.getElementById('to').value}`;x.value=window.btoa(x.value);x.value+=`\nDecode with ${window.location.href}`}">
         <h4>Encrypt & Send</h4>
         <input type="email" id="to" placeholder="to address">
         <input type="text" name="subject" placeholder="subject">
