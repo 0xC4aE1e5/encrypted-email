@@ -23,10 +23,10 @@
 <body class="black">
     <style>*{color:white;}input[type="submit"],button{color: black;}</style>
     <h1>Encrypted email</h1>
-    <form onsubmit="var x=document.getElementById('body'); if (isMobile()) {navigator.share({title: document.getElementById('to').value,text: x.value})} else {this.action = `mailto:${document.getElementById('to').value}`;x.value=window.btoa(x.value);x.value+=`\nDecode with ${window.location.href}`}">
+    <form onsubmit="var x=document.getElementById('body'); if (isMobile()) {navigator.share({title: document.getElementById('subject').value,text: x.value})} else {this.action = `mailto:${document.getElementById('to').value}`;x.value=window.btoa(x.value);x.value+=`\nDecode with ${window.location.href}`}">
         <h4>Encrypt & Send</h4>
         <input type="email" id="to" placeholder="to address">
-        <input type="text" name="subject" placeholder="subject">
+        <input type="text" name="subject" id="subject" placeholder="subject">
         <textarea name="body" id="body" style="height: 35em; width:60em;"></textarea>
         <br>
         <input type="submit" value="Send!">
