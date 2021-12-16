@@ -23,7 +23,7 @@
 <body class="black">
     <style>*{color:white;}input[type="submit"],button{color: black;}</style>
     <h1>Encrypted email</h1>
-    <form onsubmit="var x=document.getElementById('to'); if (isMobile()) {navigator.share({title: document.getElementById('subject').value,text: document.getElementById('body').value})} else {this.action = `mailto:${document.getElementById('to').value}`;x.value=window.btoa(x.value);x.value+=`\nDecode with ${window.location.href}`}">
+    <form onsubmit="this.preventDefault(); var x=document.getElementById('to'); if (isMobile()) {navigator.share({title: document.getElementById('subject').value,text: document.getElementById('body').value})} else {this.action = `mailto:${document.getElementById('to').value}`;x.value=window.btoa(x.value);x.value+=`\nDecode with ${window.location.href}`}">
         <h4>Encrypt & Send</h4>
         <input type="email" id="to" placeholder="to address">
         <input type="text" name="subject" id="subject" placeholder="subject">
